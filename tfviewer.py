@@ -141,7 +141,7 @@ if __name__ == "__main__":
   print("Pre-loading up to %d examples.." % args.max_images)
   count = preload_images(args.max_images)
   print("Loaded %d examples" % count)
-  app.run(host=args.host, port=args.port)
+  app.run()
   
 
 
