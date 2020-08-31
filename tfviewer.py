@@ -2,13 +2,14 @@
 import sys
 import io
 import argparse
-
+from flask_ngrok import run_with_ngrok
 import tensorflow as tf
 from flask import Flask, render_template, send_file
 
 from overlays import overlay_factory
 
 app = Flask(__name__)
+run_with_ngrok(app)
 
 parser = argparse.ArgumentParser(description='TF Record viewer.')
 parser.add_argument('tfrecords', type=str, nargs='+',
@@ -141,4 +142,7 @@ if __name__ == "__main__":
   count = preload_images(args.max_images)
   print("Loaded %d examples" % count)
   app.run(host=args.host, port=args.port)
+  
+
+
 
